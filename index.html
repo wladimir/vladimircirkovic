@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vladimir Ćirković - Software Engineer & Curious Tinkerer">
-    <meta name="keywords" content="software engineer, web development, curious tinkerer">
+    <meta name="description" content="Vladimir Ćirković - Software Engineer">
+    <meta name="keywords" content="software engineer, developer, coding, technology">
     <meta name="author" content="Vladimir Ćirković">
-    <title>Vladimir Ćirković - Engineer & Tinkerer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Vladimir Ćirković</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -18,68 +17,155 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f0f1a;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
             color: #e0e0e0;
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.7;
+            padding: 40px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            place-items: center;
         }
 
-        /* Container */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease-in-out;
         }
 
-        /* Main Content */
         .logo {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: #ffffff;
+            letter-spacing: -0.5px;
             margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #00b7ff, #66d9ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .tagline {
-            font-size: 1.25rem;
-            color: #a0a0a0;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.3s;
         }
 
         .intro {
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            font-weight: 400;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            color: #d0d0d0;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.5s;
         }
 
-        /* Social Links */
         .social-links a {
             color: #00b7ff;
             text-decoration: none;
-            font-size: 1.125rem;
-            margin-right: 1.5rem;
-            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-right: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.7s;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #66d9ff;
+            transition: width 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
         }
 
         .social-links a:hover {
             color: #66d9ff;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
             .logo {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .tagline {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .intro {
                 font-size: 1rem;
+            }
+
+            .social-links a {
+                font-size: 1.1rem;
+                margin-right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 0.95rem;
+            }
+
+            .intro {
+                font-size: 0.9rem;
             }
 
             .social-links a {
@@ -88,53 +174,37 @@
             }
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-
-            .logo {
-                font-size: 1.75rem;
-            }
-
-            .tagline {
-                font-size: 0.875rem;
-            }
-
-            .intro {
-                font-size: 0.875rem;
-            }
-        }
-
-        /* Accessibility and Performance */
+        /* Accessibility */
         :focus {
-            outline: 2px solid #00b7ff;
-            outline-offset: 2px;
+            outline: 2px solid #66d9ff;
+            outline-offset: 4px;
+            border-radius: 3px;
         }
 
-        /* Minified styles for performance */
-        html{scroll-behavior:smooth;}
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
-    <main class="container">
-        <h1 class="logo">Vladimir Ćirković</h1>
-        <p class="tagline">Software Engineer</p>
-        <p class="intro">
-            I enjoy exploring new ideas and solving problems creatively.
-        </p>
-        <div class="social-links">
-            <a href="https://github.com/wladimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
-            <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
-        </div>
-    </main>
+<main class="container">
+    <h1 class="logo">Vladimir Ćirković</h1>
+    <p class="tagline"></p>
+    <p class="intro">
+        Crafting elegant solutions for complex problems.
+    </p>
+    <div class="social-links">
+        <a href="https://github.com/wladimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+        <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn Profile">LinkedIn</a>
+        <a href="mailto:hello@vladimircirkovic.com" aria-label="Email Me">Email</a>
+    </div>
+</main>
 
-    <script>
-        // Basic JavaScript for future interactivity (e.g., dynamic content toggling)
-        document.addEventListener('DOMContentLoaded', () => {
-            // Placeholder for future functionality
-            console.log('Page loaded successfully');
-        });
-    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Welcome to my portfolio!');
+    });
+</script>
 </body>
 </html>
