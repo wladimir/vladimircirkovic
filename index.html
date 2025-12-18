@@ -6,21 +6,63 @@
     <meta name="description" content="Vladimir Ćirković - Software Engineer">
     <meta name="keywords" content="software engineer, developer, coding, technology">
     <meta name="author" content="Vladimir Ćirković">
+    <meta name="theme-color" content="#111">
     <title>Vladimir Ćirković</title>
     <link rel="canonical" href="https://vladimircirkovic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vladimir Ćirković">
+    <meta property="og:description" content="Software Engineer">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vladimircirkovic.com/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vladimir Ćirković">
+    <meta name="twitter:description" content="Software Engineer">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vladimir Ćirković",
+        "jobTitle": "Software Engineer",
+        "url": "https://vladimircirkovic.com",
+        "sameAs": [
+            "https://github.com/wladimir",
+            "https://www.linkedin.com/in/vcirkovic/"
+        ]
+    }
+    </script>
+
     <style>
         :root {
             --color-black: #111;
             --color-white: #fff;
             --color-accent: #e10600;
+            --border-width: 8px;
         }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-black: #f5f5f5;
+                --color-white: #0a0a0a;
+                --color-accent: #ff3b30;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         html {
             scroll-behavior: smooth;
             background: var(--color-white);
         }
+
         body {
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--color-white);
             color: var(--color-black);
             line-height: 1.4;
@@ -28,28 +70,44 @@
             min-height: 100vh;
             margin: 0;
         }
+
         .container {
             max-width: 100%;
             height: 100vh;
             padding: 60px;
             background: var(--color-white);
-            border: 8px solid var(--color-black);
+            border: var(--border-width) solid var(--color-black);
             box-shadow: none;
             border-radius: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            animation: fadeIn 0.5s ease-out;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1, h2, h3, h4, h5, h6 {
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 0.03em;
             margin-bottom: 0.5em;
         }
+
         h1 {
             font-size: 4rem;
             margin-bottom: 0.2em;
         }
+
         .logo {
             font-size: 4rem;
             font-weight: 900;
@@ -59,7 +117,14 @@
             display: block;
             margin-bottom: 0.2em;
             text-shadow: 4px 4px 0 var(--color-accent);
+            cursor: default;
+            transition: text-shadow 0.2s ease;
         }
+
+        .logo:hover {
+            text-shadow: 6px 6px 0 var(--color-accent);
+        }
+
         .tagline {
             font-size: 1.8rem;
             font-weight: 900;
@@ -67,10 +132,29 @@
             margin-bottom: 2em;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            position: relative;
         }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.6rem;
+            background: var(--color-accent);
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         .social-links {
             margin-top: 2em;
+            animation: fadeIn 0.5s ease-out 0.2s both;
         }
+
         .social-links a {
             color: var(--color-black);
             text-decoration: underline;
@@ -83,19 +167,48 @@
             text-transform: uppercase;
             border: 4px solid var(--color-black);
             padding: 0.8em 1.2em;
-            transition: all 0.1s ease;
+            transition: all 0.15s ease;
             display: inline-block;
             letter-spacing: 0.05em;
             background: var(--color-white);
+            position: relative;
         }
-        .social-links a:hover, .social-links a:focus {
-            color: var(--color-accent);
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+            z-index: -1;
+        }
+
+        .social-links a:hover::before,
+        .social-links a:focus::before {
+            transform: scaleX(1);
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            color: var(--color-white);
             text-decoration-color: var(--color-white);
-            border: 4px solid var(--color-accent);
-            background: var(--color-white);
+            border-color: var(--color-accent);
             outline: none;
             transform: translate(-2px, -2px);
         }
+
+        @media (prefers-color-scheme: dark) {
+            .social-links a:hover,
+            .social-links a:focus {
+                color: var(--color-white);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 40px;
@@ -106,22 +219,34 @@
             .tagline {
                 font-size: 1.3rem;
             }
+            .cursor {
+                height: 1.2rem;
+            }
             .social-links a {
                 font-size: 1.1rem;
                 margin-right: 1rem;
                 margin-bottom: 1rem;
             }
         }
+
         @media (max-width: 480px) {
             .container {
                 padding: 20px;
-                border: 4px solid var(--color-black);
+                border-width: 4px;
             }
             .logo {
                 font-size: 1.8rem;
+                text-shadow: 3px 3px 0 var(--color-accent);
+            }
+            .logo:hover {
+                text-shadow: 4px 4px 0 var(--color-accent);
             }
             .tagline {
                 font-size: 1rem;
+            }
+            .cursor {
+                height: 0.9rem;
+                width: 2px;
             }
             .social-links a {
                 font-size: 0.9rem;
@@ -129,26 +254,30 @@
                 padding: 0.6em 1em;
             }
         }
+
         :focus {
             outline: 2px solid var(--color-accent);
             outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
 <main class="container">
     <h1 class="logo">Vladimir Ćirković</h1>
-    <p class="tagline">Software Engineer</p>
+    <p class="tagline">Software Engineer<span class="cursor" aria-hidden="true"></span></p>
     <div class="social-links">
         <a href="https://github.com/wladimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
         <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
         <a href="mailto:hello@vladimircirkovic.com" aria-label="Email Me">Email</a>
     </div>
 </main>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log('Welcome to my portfolio!');
-    });
-</script>
 </body>
 </html>
