@@ -3,49 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vladimir Ćirković - Software Engineer, Founder of Frostwood Labs">
-    <meta name="keywords" content="software engineer, frostwood labs, backend developer">
+    <meta name="description" content="Vladimir Ćirković — backend engineer and software architect with 18+ years of experience. Founder of Frostwood Labs.">
     <meta name="author" content="Vladimir Ćirković">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>Vladimir Ćirković</title>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <title>Vladimir Ćirković — Software Engineer</title>
     <link rel="canonical" href="https://vladimircirkovic.com/">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Vladimir Ćirković">
-    <meta property="og:description" content="Software Engineer, Founder of Frostwood Labs">
-    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vladimir Ćirković">
+    <meta property="og:title" content="Vladimir Ćirković — Software Engineer">
+    <meta property="og:description" content="Backend engineer and software architect. Founder of Frostwood Labs.">
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://vladimircirkovic.com/">
     <meta property="og:image" content="https://vladimircirkovic.com/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Vladimir Ćirković — Software Engineer, Founder of Frostwood Labs">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vladimir Ćirković">
-    <meta name="twitter:description" content="Software Engineer, Founder of Frostwood Labs">
+    <meta name="twitter:title" content="Vladimir Ćirković — Software Engineer">
+    <meta name="twitter:description" content="Backend engineer and software architect. Founder of Frostwood Labs.">
     <meta name="twitter:image" content="https://vladimircirkovic.com/og-image.png">
+    <meta name="twitter:image:alt" content="Vladimir Ćirković — Software Engineer, Founder of Frostwood Labs">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Vladimir Ćirković",
-        "jobTitle": "Software Engineer",
-        "url": "https://vladimircirkovic.com",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Frostwood Labs",
-            "url": "https://frostwoodlabs.com"
-        },
-        "sameAs": [
-            "https://github.com/wladimir",
-            "https://www.linkedin.com/in/vcirkovic/",
-            "https://frostwoodlabs.com"
-        ]
+        "@type": "ProfilePage",
+        "@id": "https://vladimircirkovic.com/#profile",
+        "url": "https://vladimircirkovic.com/",
+        "name": "Vladimir Ćirković — Software Engineer",
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://vladimircirkovic.com/#person",
+            "name": "Vladimir Ćirković",
+            "url": "https://vladimircirkovic.com/",
+            "jobTitle": "Software Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Frostwood Labs",
+                "url": "https://frostwoodlabs.com/"
+            },
+            "alumniOf": "University of Belgrade",
+            "sameAs": [
+                "https://github.com/wladimir",
+                "https://www.linkedin.com/in/vcirkovic/",
+                "https://frostwoodlabs.com/"
+            ]
+        }
     }
     </script>
 
@@ -79,7 +92,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.5;
@@ -107,10 +120,6 @@
             margin-bottom: 0.25rem;
         }
 
-        .company {
-            margin-bottom: 2rem;
-        }
-
         .company a {
             color: var(--link);
             text-decoration: none;
@@ -122,6 +131,13 @@
             border-color: var(--link-hover);
         }
 
+        .summary {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-top: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
         nav {
             display: flex;
             justify-content: center;
@@ -130,6 +146,10 @@
         }
 
         nav a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0 0.25rem;
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.875rem;
@@ -140,8 +160,22 @@
             color: var(--link-hover);
         }
 
-        code, pre, .mono {
-            font-family: 'JetBrains Mono', monospace;
+        a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -153,12 +187,13 @@
 <main>
     <h1>Vladimir Ćirković</h1>
     <p class="role">Software Engineer</p>
-    <p class="company">Founder, <a href="https://frostwoodlabs.com" target="_blank" rel="noopener noreferrer">Frostwood Labs</a></p>
+    <p class="company">Founder, <a href="https://frostwoodlabs.com" target="_blank" rel="noopener noreferrer">Frostwood Labs<span class="sr-only"> (opens in new tab)</span></a></p>
+    <p class="summary">Backend engineer and software architect with 18+ years of experience building distributed systems, payment platforms, and data-heavy services.</p>
     <nav aria-label="Contact and social links">
-        <a href="https://github.com/wladimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a>
-        <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
-        <a href="mailto:hello@vladimircirkovic.com" aria-label="Send email">Email</a>
-        <a href="VladimirCirkovicResume.pdf" aria-label="Download resume (PDF)">Resume</a>
+        <a href="https://github.com/wladimir" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:hello@vladimircirkovic.com">Email</a>
+        <a href="VladimirCirkovicResume.pdf" type="application/pdf">Resume (PDF)</a>
     </nav>
 </main>
 </body>

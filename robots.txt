@@ -1,3 +1,4 @@
 # robots.txt for vladimircirkovic.com
 User-agent: *
 Allow: /
+Sitemap: https://vladimircirkovic.com/sitemap.xml
