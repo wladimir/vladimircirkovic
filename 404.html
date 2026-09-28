@@ -6,8 +6,8 @@
     <meta name="robots" content="noindex">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-    <title>404 — Page not found</title>
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+    <title>Page Not Found | Vladimir Ćirković</title>
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,20 +20,20 @@
         }
 
         :root {
-            --text: #1a1a1a;
-            --text-secondary: #666;
-            --bg: #fff;
-            --link: #1a1a1a;
-            --link-hover: #000;
+            --text: #0b0b0c;
+            --text-secondary: #52525b;
+            --text-faint: #71717a;
+            --bg: #ffffff;
+            --accent: #2563eb;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --text: #e5e5e5;
-                --text-secondary: #999;
-                --bg: #0a0a0a;
-                --link: #e5e5e5;
-                --link-hover: #fff;
+                --text: #e8e8e8;
+                --text-secondary: #a1a1aa;
+                --text-faint: #8a8a93;
+                --bg: #0b0b0c;
+                --accent: #60a5fa;
             }
         }
 
@@ -58,10 +58,21 @@
             max-width: 400px;
         }
 
+        .path {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            margin-bottom: 1rem;
+        }
+
+        .path span {
+            color: var(--accent);
+        }
+
         h1 {
             font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            font-weight: 650;
+            letter-spacing: -0.025em;
             margin-bottom: 1rem;
         }
 
@@ -70,20 +81,22 @@
             align-items: center;
             min-height: 44px;
             padding: 0 0.25rem;
-            color: var(--text-secondary);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
             text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.2s;
         }
 
         a:hover {
-            color: var(--link-hover);
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         a:focus-visible {
-            outline: 2px solid currentColor;
+            outline: 2px solid var(--accent);
             outline-offset: 4px;
-            border-radius: 2px;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -93,7 +106,8 @@
 </head>
 <body>
 <main>
-    <h1>404 — Page not found</h1>
+    <p class="path"><span aria-hidden="true">~/</span>404</p>
+    <h1>Page not found</h1>
     <a href="/">Back to home</a>
 </main>
 </body>

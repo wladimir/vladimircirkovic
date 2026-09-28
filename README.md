@@ -18,7 +18,7 @@ GitHub Pages serves the repository root directly. Push the finished changes to `
 
 ## Replacing the résumé
 
-Export the new résumé as `VladimirCirkovicResume.pdf` and replace the existing file without changing its name. Preserve meaningful PDF metadata, especially the Title (`Vladimir Ćirković — Résumé`) and Author (`Vladimir Ćirković`) fields.
+Export the new résumé as `VladimirCirkovicResume.pdf` and replace the existing file without changing its name. Preserve meaningful PDF metadata, especially the Title (`Vladimir Cirkovic Resume`) and Author (`Vladimir Ćirković`) fields.
 
 ## Social image and icons
 
